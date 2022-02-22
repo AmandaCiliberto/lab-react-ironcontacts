@@ -16,13 +16,19 @@ function App() {
             <th> Picture </th>
             <th> Name </th>
             <th> Popularity </th>
+            <th> Won an Oscar </th>
+            <th> Won an Emmy </th>
           </tr>
           {contact.map(function (contact) {
             return (
               <tr key={contact.id}>
-                <td><img id="face" src = {contact.pictureUrl} alt="contact face" /></td>
+                <td>
+                  <img id="face" src={contact.pictureUrl} alt="contact face" />
+                </td>
                 <td> {contact.name} </td>
                 <td> {contact.popularity} </td>
+                <td>{contact.wonOscar ? <p> 🏆 </p> : <p> </p>}</td>
+                <td>{contact.wonEmmy ? <p> 🏆 </p> : <p> </p>}</td>
               </tr>
             );
           })}
