@@ -5,11 +5,22 @@ import contacts from "./contacts.json";
 
 function App() {
   const [contact, setContacts] = useState(contacts.slice(0, 5));
-  console.log(contact);
+  const [restContacts, setRestContacts] = useState(contacts.slice(5, contacts.length));
+ 
+
+  const addRandom = () => {
+    console.log('contact', contact);
+    let randomContact = restContacts[Math.floor(Math.random() * restContacts.length)];
+    restContacts.splice(randomContact, 1);
+    console.log('randomContact :>> ', randomContact);
+      setContacts([...contact, randomContact]);
+    console.log('rest contacts :>> ', restContacts);
+  }
 
   return (
     <div className={"App " + contact}>
       <h1>Iron Contacts</h1>
+      <button onClick={addRandom}>Add Random Contact</button>
       <div>
         <table>
           <tr>
